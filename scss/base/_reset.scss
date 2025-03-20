@@ -44,3 +44,57 @@ span {
   margin: 0 auto;
   padding: 0 $padding + px;
 }
+
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: #b9ff66;
+  z-index: 11111111111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 1s;
+  img {
+    // box-shadow: 0 0 2px 43px #5f5b5f;
+    filter: drop-shadow(105px 60px 5px rgba(227, 62, 62))
+      drop-shadow(-105px -60px 5px rgba(227, 62, 62))
+      drop-shadow(5px -10px 5px rgba(227, 62, 62));
+    width: 100px;
+    height: 100px;
+    animation: loading 3s linear infinite;
+  }
+  @keyframes loading {
+    from {
+      transform: rotate(0deg);
+      filter: drop-shadow(105px 60px 5px rgba(227, 62, 62))
+        drop-shadow(-105px -60px 5px rgba(227, 62, 62))
+        drop-shadow(5px -10px 5px rgba(227, 62, 62));
+    }
+    to {
+      transform: rotate(-360deg) ;
+      filter: drop-shadow(105px 60px 5px rgb(23, 176, 9))
+        drop-shadow(-105px -60px 5px rgb(23, 176, 9))
+        drop-shadow(0 -105px 5px rgb(23, 176, 9))
+        drop-shadow(-105px 0 5px rgb(23, 176, 9))
+        drop-shadow(0 105px 5px rgb(23, 176, 9))
+        drop-shadow( 105px 0 5px rgb(23, 176, 9));
+    }
+  }
+}
+
+.loading-none {
+  background-color: transparent;
+  bottom: auto;
+  right: auto;
+  top: 67px;
+  left: 75px;
+  img {
+    filter: none;
+    width: auto;
+    height: auto;
+    animation: none;
+  }
+}

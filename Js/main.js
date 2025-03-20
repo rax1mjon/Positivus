@@ -1,10 +1,10 @@
-// const loading = document.getElementById("loading");
+const loading = document.getElementById("loading");
 
-// const loadingDuration = 5000;
+const loadingDuration = 3010; // 1.8s
 
-// setTimeout(() => {
-//   loading.classList.add("loading-none");
-// }, loadingDuration);
+setTimeout(() => {
+  loading.classList.add("loading-none");
+}, loadingDuration);
 
 window.addEventListener("scroll", function () {
   shrink();

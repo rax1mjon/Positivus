@@ -25,6 +25,7 @@
       @include flex.flex(no, center, center, 13);
       @include mix.text(var.$bg-00, 40, 6, 30);
       text-decoration: none;
+      padding-left: 60px;
       &:hover {
         transform: scale(0.98);
       }
