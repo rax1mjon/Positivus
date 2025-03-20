@@ -1,0 +1,46 @@
+@use "../utils/functions" as func;
+@use "../utils/mixins" as mix;
+@use "../utils/variables" as var;
+* {
+  margin: 0;
+  padding: 0;
+  &,
+  &::before,
+  &::after {
+    box-sizing: border-box;
+  }
+}
+html,
+body {
+  font-family: "Lato", serif;
+  scroll-behavior: smooth;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+li,
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  transition: 0.5s;
+  display: inline-block;
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    transform: scale(1.05);
+  }
+}
+a,
+p,
+span {
+  white-space: nowrap;
+}
+
+.container {
+  $padding: 20;
+  max-width: func.container(1920, 345, $padding);
+  margin: 0 auto;
+  padding: 0 $padding + px;
+}

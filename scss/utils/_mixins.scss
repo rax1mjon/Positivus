@@ -1,0 +1,70 @@
+@mixin font($family: M) {
+  @if $family != M {
+    font-family: "Open Sans", serif;
+  } @else {
+    font-family: "Manrope", serif;
+  }
+}
+
+@mixin pos($pos, $top: no, $right: no, $bottom: no, $left: no) {
+  position: $pos;
+  @if $top != no {
+    top: $top;
+  }
+  @if $right != no {
+    right: $right;
+  }
+  @if $bottom != no {
+    bottom: $bottom;
+  }
+  @if $left != no {
+    left: $left;
+  }
+}
+
+@mixin p($padding) {
+  padding: $padding;
+}
+
+@mixin m($mar) {
+  margin: $mar;
+}
+
+@mixin bg($image: no, $color: no, $size: no) {
+  @if $image != no {
+    background: $image no-repeat;
+  }
+  @if $color != no {
+    background-color: $color;
+  }
+  @if $size != no {
+    background-size: $size;
+  }
+}
+
+@mixin w($max: no, $width: no) {
+  @if $max != no {
+    max-width: $max;
+  }
+  @if $width != no {
+    width: $width;
+  }
+}
+
+@mixin h($height) {
+  height: $height;
+}
+
+@mixin text($color, $size, $weight, $line, $align: no) {
+  color: $color;
+  font-size: $size + px;
+  font-weight: $weight * 100;
+  line-height: $line + px;
+  @if $align != no {
+    text-align: $align;
+  }
+}
+
+@mixin fill($fill) {
+  fill: $fill;
+}

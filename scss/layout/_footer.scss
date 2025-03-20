@@ -1,0 +1,201 @@
+@use "../utils/mixins" as mix;
+@use "../utils/variables" as var;
+@use "../components/buttons" as btn;
+@use "../layout/grid" as grid;
+@use "../layout/forms" as form;
+@use "../layout/flex" as flex;
+@use "../components/dropdown" as drop;
+@use "../themes/dark--mode";
+
+.footer {
+  padding: 140px 20px 0;
+
+  &--wrapper {
+    @include mix.pos(relative);
+    border-radius: 24px 24px 0 0;
+    background-color: var.$bg-00;
+    padding: 55px 60px;
+    @include flex.flex(column, no, no, 66);
+    @media (max-width: 1080px) {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    @media (max-width: 500px) {
+      padding: 30px;
+    }
+  }
+
+  &--header {
+    @include flex.flex(no, center, space-between, 20);
+    @media (max-width: 1010px) {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 50px;
+      nav {
+        order: 1;
+      }
+    }
+    @media (max-width: 500px) {
+      gap: 20px;
+    }
+  }
+
+  &--brand {
+    a:hover {
+      transform: scale(0.98);
+    }
+  }
+
+  &--menu {
+    @include flex.flex(no, center, center, 40);
+    @media (max-width: 640px) {
+      flex-wrap: wrap;
+    }
+    nav {
+      @media (max-width: 1080px) {
+        order: 1;
+      }
+    }
+
+    a {
+      @include mix.text(var.$bg-ff, 18, 4, 100%);
+      text-decoration: underline;
+      &:hover {
+        color: var.$bg-b9;
+      }
+    }
+  }
+  &--nav__links {
+    --white: #fff;
+    --black: #000;
+    @include flex.flex(no, center, center, 20);
+    @media (max-width: 1010px) {
+      @include mix.pos(absolute, no, no, 145px);
+    }
+    @media (max-width: 587px) {
+      bottom: calc(145 + 50) + px;
+    }
+    a {
+      &:hover {
+        --white: #000;
+        --black: #fff;
+        svg {
+          box-shadow: 0 0 5px 2px var.$bg-b9;
+          border-radius: 50%;
+        }
+      }
+      svg {
+        fill: var(--black);
+        circle {
+          fill: var(--white);
+        }
+      }
+      &:nth-child(2) {
+        svg {
+          background-color: var(--black);
+          fill: var(--white);
+        }
+      }
+    }
+  }
+
+  &--body {
+    @include flex.flex(column, no, no, 70);
+    &__main {
+      @include flex.flex(no, no, space-between, 20);
+
+      @media (max-width: 1140px) {
+        flex-direction: column;
+      }
+
+      ul {
+        @include flex.flex(column, no, center, 20);
+        width: auto;
+        li {
+          h3 {
+            display: inline-block;
+            border-radius: 7px;
+            padding: 0 7px;
+            @include mix.text(var.$bg-00, 20, 5, 100%);
+            background-color: var.$bg-b9;
+            margin-bottom: 7px;
+          }
+          a,
+          address {
+            @include mix.text(var.$bg-ff, 18, 4, 100%);
+            font-style: normal;
+          }
+        }
+      }
+
+      form {
+        background-color: var.$bg-19;
+        padding: 58px 40px;
+        width: 100%;
+        max-width: 634px;
+        @include flex.flex(no, stretch, center, 20);
+        @media (max-width: 1140px) {
+          max-width: 100%;
+        }
+        @media (max-width: 750px) {
+          flex-direction: column;
+        }
+
+        @media (max-width: 500px) {
+          padding: 20px;
+        }
+        input {
+          outline: none;
+          width: 100%;
+          max-width: 50%;
+          padding: 22px 35px;
+          border-radius: 14px;
+          border: 1px solid #ffffff;
+          @include mix.text(var.$bg-ff, 18, 4, 100%);
+          background-color: transparent;
+          &::placeholder {
+            @include mix.text(var.$bg-ff, 18, 4, 100%);
+          }
+          &:focus {
+            box-shadow: inset -1px -2px 1px 2px var.$bg-b9, 0 0 2px var.$bg-b9;
+            border: 2px;
+          }
+          @media (max-width: 750px) {
+            max-width: 100%;
+          }
+        }
+        button {
+          @include btn.btn(20px 35, 14, null, var.$bg-b9);
+          @include mix.text(var.$bg-00, 20, 4, 28);
+          transition: 1s;
+          &:hover {
+            box-shadow: inset 250px 0 #fff;
+          }
+          @media (max-width: 450px) {
+            padding: 18px;
+          }
+        }
+      }
+    }
+
+    &__bottom {
+      border-top: 1px solid #fff;
+      padding-top: 50px;
+      @include flex.flex(no, center, flex-start, 40);
+      flex-wrap: wrap;
+      @media (max-width: 500px) {
+        justify-content: center;
+        text-align: center;
+        padding-top: 60px;
+      }
+      p,
+      a {
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 28px;
+        color: #fff;
+        white-space: wrap;
+      }
+    }
+  }
+}
